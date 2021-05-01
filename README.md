@@ -14,14 +14,14 @@ lcov-badge2 can be used as either a command line utility or a library:
 To use this library, just pass the path to your lcov file:
 
 ```bash
-lcov-badge coverage/lcov.info
+lcov-badge2 coverage/lcov.info
 ```
 
 This will generate a `badge.svg` file. If you want an output file with a different name, you can pass
 the `-o` option:
 
 ```bash
-lcov-badge -o coverage.svg coverage/lcov.info
+lcov-badge2 -o coverage.svg coverage/lcov.info
 ```
 
 You can view all arguments by passing the `-h` option.
