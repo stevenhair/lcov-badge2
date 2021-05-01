@@ -7,7 +7,7 @@ A tool for generating SVG badges from LCOV reports, based on [lcov-badge](https:
 
 ## Usage
 
-lcov-badge2 can be used as either a command line utility or a library.
+lcov-badge2 can be used as either a command line utility or a library:
 
 ### Command line usage
 
