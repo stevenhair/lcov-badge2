@@ -28,5 +28,4 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v1.4.1
         with:
-          files: ./coverage-final.json,lcov.info,clover.xml
-          directory: ./coverage/
+          directory: ./coverage
