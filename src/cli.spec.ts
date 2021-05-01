@@ -1,3 +1,5 @@
+import path from 'path';
+
 import { Arguments, processArguments } from './cli';
 
 describe('CLI', () => {
@@ -14,12 +16,14 @@ describe('CLI', () => {
     describe('When the help argument is passed', () => {
         describe.each(['-h', '--help'])('When %s is passed', (arg) => {
             beforeEach(() => {
-                process.argv = ['node', 'foo.ts', arg];
+                process.argv = ['node', path.join('some', 'path', 'whatever', 'foo.ts'), arg];
                 processArguments();
             });
 
             test('it prints the help message', () => {
                 expect(console.log).toHaveBeenCalledTimes(1);
+                expect((console.log as jest.MockedFunction<typeof console.log>).mock.calls[0][0])
+                    .toContain('Usage: foo.ts [-h] [-o OUTPUT] [-l LABEL] input');
             });
 
             test('it exits without an error', () => {

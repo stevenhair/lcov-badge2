@@ -1,5 +1,6 @@
 import minimist, { ParsedArgs } from 'minimist';
 import buildOptions from 'minimist-options';
+import { basename } from 'path';
 
 export interface Arguments {
     input: string;
@@ -16,7 +17,7 @@ function exitWithError(message: string): never {
 }
 
 function printHelp(): never {
-    const message = `Usage: ${process.argv[1]} [-h] [-o OUTPUT] [-l LABEL] input
+    const message = `Usage: ${basename(process.argv[1])} [-h] [-o OUTPUT] [-l LABEL] input
 
 Positional Arguments:
   input                 Path to LCOV file to parse
