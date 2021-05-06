@@ -1,7 +1,7 @@
 import parse from 'parse-lcov';
 
-export function getCoverageLevel(filename: string): number {
-    const coverage = parse(filename);
+export function getCoverageLevel(lcov: string): number {
+    const coverage = parse(lcov);
 
     const summary = {
         lines: { found: 0, hit: 0 },
