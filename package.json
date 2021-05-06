@@ -25,6 +25,8 @@
     "coverage": "jest --coverage",
     "postbuild": "gulp postbuild",
     "prebuild": "gulp clean",
+    "start:dev": "ts-node src/main.ts",
+    "start:prod": "dist/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "lint": "eslint src/**/*.ts"

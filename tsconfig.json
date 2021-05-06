@@ -13,11 +13,6 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./src",
-    "strictNullChecks": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
     "resolveJsonModule": true,
     "strict": true,
     "typeRoots": [

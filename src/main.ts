@@ -4,7 +4,8 @@ import { createBadge } from './badge';
 import { processArguments } from './cli';
 import { getCoverageLevel } from './coverage';
 
-export async function generateBadge(input: string, label = 'coverage'): Promise<string> {
+export async function generateBadge(filename: string, label = 'coverage'): Promise<string> {
+    const input = (await fs.readFile(filename)).toString();
     const coverage = getCoverageLevel(input);
     return createBadge(label, coverage);
 }

@@ -1,5 +1,5 @@
 import { spawnSync, SpawnSyncReturns } from 'child_process';
-import { rm, stat, writeFile } from 'fs/promises';
+import fs from 'fs/promises';
 import os from 'os';
 import path from 'path';
 
@@ -14,6 +14,7 @@ describe('Main', () => {
     let badgeContents: string;
 
     beforeEach(async () => {
+        jest.spyOn(fs, 'readFile').mockResolvedValue('some lcov content');
         (getCoverageLevel as jest.MockedFunction<typeof getCoverageLevel>).mockReturnValue(99.5);
         (createBadge as jest.MockedFunction<typeof createBadge>).mockResolvedValue('totally an svg');
 
@@ -21,7 +22,8 @@ describe('Main', () => {
     });
 
     test('the main function generates the badge from the input', () => {
-        expect(getCoverageLevel).toHaveBeenCalledWith('foo.lcov');
+        expect(fs.readFile).toHaveBeenCalledWith('foo.lcov');
+        expect(getCoverageLevel).toHaveBeenCalledWith('some lcov content');
         expect(createBadge).toHaveBeenCalledWith('something', 99.5);
     });
 
@@ -55,14 +57,14 @@ describe('Main', () => {
             filePath = path.join(dir, `badge-${new Date().valueOf()}.svg`);
             inputFilePath = path.join(dir, `lcov-${new Date().valueOf()}.info`);
 
-            await writeFile(inputFilePath, report);
+            await fs.writeFile(inputFilePath, report);
 
             result = spawnSync('ts-node', [path.join(__dirname, 'main.ts'), '-o', filePath, inputFilePath]);
         });
 
         afterEach(async () => {
-            await rm(filePath);
-            await rm(inputFilePath);
+            await fs.rm(filePath);
+            await fs.rm(inputFilePath);
         });
 
         test('it exited successfully', () => {
@@ -70,7 +72,7 @@ describe('Main', () => {
         });
 
         test('it writes the badge file', async () => {
-            await expect(stat(filePath)).resolves.not.toThrow();
+            await expect(fs.stat(filePath)).resolves.not.toThrow();
         });
     });
 });
