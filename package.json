@@ -1,6 +1,6 @@
 {
   "name": "lcov-badge2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Generate a badge from a LCOV report",
   "keywords": [
     "lcov",
@@ -38,24 +38,24 @@
     "parse-lcov": "^1.0.4"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
-    "@types/minimist": "^1.2.1",
-    "@types/minimist-options": "^3.0.0",
-    "@types/node": "^15.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
+    "@types/jest": "^27.0.3",
+    "@types/minimist": "^1.2.2",
+    "@types/minimist-options": "^4.0.1",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
     "del": "^6.0.0",
-    "eslint": "^7.25.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.6",
-    "eslint-plugin-unicorn": "^31.0.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-unicorn": "^39.0.0",
     "gulp": "^4.0.2",
     "gulp-header": "^2.0.9",
-    "jest": "^26.6.3",
+    "jest": "^27.4.4",
     "pre-commit": "^1.2.2",
-    "ts-jest": "^26.5.6",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "ts-jest": "^27.1.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
   },
   "engines": {
     "node": ">=14"

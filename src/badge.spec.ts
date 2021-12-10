@@ -12,7 +12,7 @@ describe('Badge', () => {
     describe('Creating badge', () => {
         test('it returns the badge contents', async () => {
             const contents = await createBadge('coverage', 12.34);
-            expect(contents).toEqual('this is a badge');
+            expect(contents).toBe('this is a badge');
         });
 
         test.each([

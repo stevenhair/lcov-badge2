@@ -71,15 +71,15 @@ describe('CLI', () => {
         });
 
         test('it sets the input', () => {
-            expect(args.input).toEqual('foo');
+            expect(args.input).toBe('foo');
         });
 
         test('it uses the default label value', () => {
-            expect(args.label).toEqual('coverage');
+            expect(args.label).toBe('coverage');
         });
 
         test('it uses the default output value', () => {
-            expect(args.output).toEqual('badge.svg');
+            expect(args.output).toBe('badge.svg');
         });
     });
 
@@ -92,7 +92,7 @@ describe('CLI', () => {
         });
 
         test('it sets the value for label', () => {
-            expect(args.label).toEqual('my-coverage');
+            expect(args.label).toBe('my-coverage');
         });
     });
 
@@ -105,7 +105,7 @@ describe('CLI', () => {
         });
 
         test('it sets the value for label', () => {
-            expect(args.output).toEqual('my-badge.svg');
+            expect(args.output).toBe('my-badge.svg');
         });
     });
 });

@@ -28,7 +28,7 @@ describe('Main', () => {
     });
 
     test('it returns the SVG as a string', () => {
-        expect(badgeContents).toEqual('totally an svg');
+        expect(badgeContents).toBe('totally an svg');
     });
 
     describe('Running as a script', () => {
@@ -50,7 +50,7 @@ describe('Main', () => {
             end_of_record`;
         let inputFilePath: string;
         let filePath: string;
-        let result: SpawnSyncReturns<string>;
+        let result: SpawnSyncReturns<string | Buffer>;
 
         beforeEach(async () => {
             const dir = os.tmpdir();
@@ -68,7 +68,7 @@ describe('Main', () => {
         });
 
         test('it exited successfully', () => {
-            expect(result.status).toEqual(0);
+            expect(result.status).toBe(0);
         });
 
         test('it writes the badge file', async () => {
