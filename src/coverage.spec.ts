@@ -28,7 +28,7 @@ describe('Coverage', () => {
         });
 
         test('it returns 100', () => {
-            expect(getCoverageLevel('foo')).toEqual(100);
+            expect(getCoverageLevel('foo')).toBe(100);
         });
     });
 
@@ -46,7 +46,7 @@ describe('Coverage', () => {
         });
 
         test('it returns 0', () => {
-            expect(getCoverageLevel('foo')).toEqual(0);
+            expect(getCoverageLevel('foo')).toBe(0);
         });
     });
 
@@ -64,7 +64,7 @@ describe('Coverage', () => {
         });
 
         test('it returns 0', () => {
-            expect(getCoverageLevel('foo')).toEqual(100);
+            expect(getCoverageLevel('foo')).toBe(100);
         });
     });
 
@@ -82,7 +82,7 @@ describe('Coverage', () => {
         });
 
         test('it calculates the coverage', () => {
-            expect(getCoverageLevel('foo')).toEqual(74.18);
+            expect(getCoverageLevel('foo')).toBe(74.18);
         });
     });
 });
