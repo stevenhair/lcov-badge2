@@ -1,9 +1,9 @@
-const del = require('del');
-const gulp = require('gulp');
-const header = require('gulp-header');
+import { deleteAsync } from 'del';
+import gulp from 'gulp';
+import header from 'gulp-header';
 
-function clean() {
-    return del(['dist']);
+export async function clean() {
+    await deleteAsync(['dist']);
 }
 
 function addShebang() {
@@ -17,5 +17,4 @@ function copyPackageFiles() {
         .pipe(gulp.dest('dist'));
 }
 
-module.exports.clean = clean;
-module.exports.postbuild = gulp.series(addShebang, copyPackageFiles);
+export const postbuild = gulp.series(addShebang, copyPackageFiles);

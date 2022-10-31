@@ -200,7 +200,6 @@ rules:
   jest/no-identical-title: error
   jest/no-if: warn
   jest/no-jasmine-globals: error
-  jest/no-jest-import: error
   jest/no-mocks-import: error
   jest/no-standalone-expect:
     - error
