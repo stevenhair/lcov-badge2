@@ -1,36 +1,24 @@
-import badge, { colors } from 'badge-up';
-
-import { createBadge } from './badge';
-
-jest.mock('badge-up');
+import { BadgeColor, createBadge } from './badge';
 
 describe('Badge', () => {
-    beforeEach(() => {
-        (badge as jest.MockedFunction<typeof badge>).mockResolvedValue('this is a badge');
-    });
-
     describe('Creating badge', () => {
-        test('it returns the badge contents', async () => {
-            const contents = await createBadge('coverage', 12.34);
-            expect(contents).toBe('this is a badge');
-        });
-
         test.each([
-            [colors.red, 0],
-            [colors.red, 75],
-            [colors.orange, 75.01],
-            [colors.orange, 85],
-            [colors.yellow, 85.01],
-            [colors.yellow, 90],
-            [colors.yellowgreen, 90.01],
-            [colors.yellowgreen, 93],
-            [colors.green, 93.01],
-            [colors.green, 97],
-            [colors.brightgreen, 97.01],
-            [colors.brightgreen, 100],
-        ])('the color is %s when the coverage is %s', async (color, coverage) => {
-            await createBadge('abc123', coverage);
-            expect(badge).toHaveBeenCalledWith('abc123', `${coverage}%`, color);
+            [BadgeColor.Red, 0],
+            [BadgeColor.Red, 75],
+            [BadgeColor.Orange, 75.01],
+            [BadgeColor.Orange, 85],
+            [BadgeColor.Yellow, 85.01],
+            [BadgeColor.Yellow, 90],
+            [BadgeColor.YellowGreen, 90.01],
+            [BadgeColor.YellowGreen, 93],
+            [BadgeColor.Green, 93.01],
+            [BadgeColor.Green, 97],
+            [BadgeColor.BrightGreen, 97.01],
+            [BadgeColor.BrightGreen, 100],
+        ])('the color is %s when the coverage is %s', (color, coverage) => {
+            const expectedBadge = `<svg xmlns="http://www.w3.org/2000/svg" width="90" height="20"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><mask id="a"><rect width="90" height="20" rx="3" fill="#fff"/></mask><g mask="url(#a)"><path fill="#555" d="M0 0h62v20H0z"/><path fill="${color}" d="M62 0h28v20H62z"/><path fill="url(#b)" d="M0 0h90v20H0z"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,Geneva,sans-serif" font-size="11"><text x="31" y="15" fill="#010101" fill-opacity=".3">abc123</text><text x="31" y="14">abc123</text><text x="75" y="15" fill="#010101" fill-opacity=".3">${coverage}%</text><text x="75" y="14">${coverage}%</text></g></svg>`;
+            const badge = createBadge('abc123', coverage);
+            expect(badge).toEqual(expectedBadge);
         });
     });
 });

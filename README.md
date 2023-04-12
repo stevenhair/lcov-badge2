@@ -33,7 +33,7 @@ You can view all arguments by passing the `-h` option.
 Here's an example of programmatic usage:
 
 ```typescript
-import generateBadge from 'lcov-badge2';
+import { generateBadge } from 'lcov-badge2';
 
 const badge = generateBadge('coverage/lcov.info', 'coverage')
 fs.writeFileSync('badge.svg', badge);
