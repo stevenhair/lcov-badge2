@@ -238,8 +238,6 @@ rules:
     - error
     - allowHigherOrderFunctions: true
       allowTypedFunctionExpressions: true
-      allowDirectConstAssertionInArrowFunctions: true
-      shouldTrackReferences: true
   '@typescript-eslint/member-delimiter-style':
     - error
     - singleline:
