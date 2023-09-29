@@ -1,4 +1,4 @@
-import badge, { colors } from 'badge-up';
+import badge, { colors } from 'badge-up2';
 
 function getColor(coverage: number): colors {
     if (coverage > 97) {

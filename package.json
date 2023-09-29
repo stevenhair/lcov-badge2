@@ -32,7 +32,7 @@
     "lint": "eslint src/**/*.ts"
   },
   "dependencies": {
-    "badge-up": "^3.0.0",
+    "badge-up2": "^1.0.0",
     "minimist": "^1.2.5",
     "minimist-options": "^4.1.0",
     "parse-lcov": "^1.0.4"

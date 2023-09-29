@@ -1,4 +1,4 @@
-declare module 'badge-up' {
+declare module 'badge-up2' {
     export enum colors {
         brightgreen = '#4C1',
         green = '#97CA00',

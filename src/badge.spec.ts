@@ -1,8 +1,8 @@
-import badge, { colors } from 'badge-up';
+import badge, { colors } from 'badge-up2';
 
 import { createBadge } from './badge';
 
-jest.mock('badge-up');
+jest.mock('badge-up2');
 
 describe('Badge', () => {
     beforeEach(() => {
