@@ -1,4 +1,4 @@
-name: Build
+name: Test
 
 on:
   push:
@@ -26,6 +26,8 @@ jobs:
       - run: npm run coverage
       - run: npm run lint
       - name: Codecov
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage
