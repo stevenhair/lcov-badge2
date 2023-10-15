@@ -1,4 +1,4 @@
-import badge, { colors } from 'badge-up2';
+import { basic, basicColors } from 'badge-up2';
 
 import { createBadge } from './badge';
 
@@ -6,31 +6,31 @@ jest.mock('badge-up2');
 
 describe('Badge', () => {
     beforeEach(() => {
-        (badge as jest.MockedFunction<typeof badge>).mockResolvedValue('this is a badge');
+        (basic as jest.MockedFunction<typeof basic>).mockReturnValue('this is a badge');
     });
 
     describe('Creating badge', () => {
-        test('it returns the badge contents', async () => {
-            const contents = await createBadge('coverage', 12.34);
+        test('it returns the badge contents', () => {
+            const contents = createBadge('coverage', 12.34);
             expect(contents).toBe('this is a badge');
         });
 
         test.each([
-            [colors.red, 0],
-            [colors.red, 75],
-            [colors.orange, 75.01],
-            [colors.orange, 85],
-            [colors.yellow, 85.01],
-            [colors.yellow, 90],
-            [colors.yellowgreen, 90.01],
-            [colors.yellowgreen, 93],
-            [colors.green, 93.01],
-            [colors.green, 97],
-            [colors.brightgreen, 97.01],
-            [colors.brightgreen, 100],
-        ])('the color is %s when the coverage is %s', async (color, coverage) => {
-            await createBadge('abc123', coverage);
-            expect(badge).toHaveBeenCalledWith('abc123', `${coverage}%`, color);
+            [basicColors.red, 0],
+            [basicColors.red, 75],
+            [basicColors.orange, 75.01],
+            [basicColors.orange, 85],
+            [basicColors.yellow, 85.01],
+            [basicColors.yellow, 90],
+            [basicColors.yellowgreen, 90.01],
+            [basicColors.yellowgreen, 93],
+            [basicColors.green, 93.01],
+            [basicColors.green, 97],
+            [basicColors.brightgreen, 97.01],
+            [basicColors.brightgreen, 100],
+        ])('the color is %s when the coverage is %s', (color, coverage) => {
+            createBadge('abc123', coverage);
+            expect(basic).toHaveBeenCalledWith('abc123', `${coverage}%`, color);
         });
     });
 });

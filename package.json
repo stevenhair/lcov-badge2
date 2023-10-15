@@ -29,10 +29,10 @@
     "start:prod": "dist/main.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "lint": "eslint src/**/*.ts"
+    "lint": "eslint src"
   },
   "dependencies": {
-    "badge-up2": "^1.0.0",
+    "badge-up2": "^2.0.1",
     "minimist": "^1.2.5",
     "minimist-options": "^4.1.0",
     "parse-lcov": "^1.0.4"

@@ -16,7 +16,7 @@ describe('Main', () => {
     beforeEach(async () => {
         jest.spyOn(fs, 'readFile').mockResolvedValue('some lcov content');
         (getCoverageLevel as jest.MockedFunction<typeof getCoverageLevel>).mockReturnValue(99.5);
-        (createBadge as jest.MockedFunction<typeof createBadge>).mockResolvedValue('totally an svg');
+        (createBadge as jest.MockedFunction<typeof createBadge>).mockReturnValue('totally an svg');
 
         badgeContents = await generateBadge('foo.lcov', 'something');
     });
