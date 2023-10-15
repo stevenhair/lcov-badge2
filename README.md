@@ -4,12 +4,15 @@ A tool for generating SVG badges from LCOV reports, based on [lcov-badge](https:
 
 [![Build](https://github.com/stevenhair/lcov-badge2/actions/workflows/test.yml/badge.svg)](https://github.com/stevenhair/lcov-badge2/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/stevenhair/lcov-badge2/branch/master/graph/badge.svg?token=nb0yy1Y6zc)](https://codecov.io/gh/stevenhair/lcov-badge2)
-
-[![NPM](https://nodei.co/npm/lcov-badge2.png)](https://nodei.co/npm/lcov-badge2/)
+[![npm](https://img.shields.io/npm/v/lcov-badge2.svg?maxAge=2592000)](https://www.npmjs.com/package/lcov-badge2)
+[![downloads](https://img.shields.io/npm/dt/lcov-badge2.svg?maxAge=2592000)](https://www.npmjs.com/package/lcov-badge2)
 
 ## Usage
 
-lcov-badge2 can be used as either a command line utility or a library:
+lcov-badge2 can be used as either a command line utility or a library.
+It produces your basic build badge:
+
+![example](https://raw.githubusercontent.com/stevenhair/lcov-badge2/master/example.svg)
 
 ### Command line usage
 
