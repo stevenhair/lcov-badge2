@@ -1,22 +1,22 @@
-import badge, { colors } from 'badge-up2';
+import { basic, basicColors } from 'badge-up2';
 
-function getColor(coverage: number): colors {
+function getColor(coverage: number): string {
     if (coverage > 97) {
-        return colors.brightgreen;
+        return basicColors.brightgreen;
     } else if (coverage > 93) {
-        return colors.green;
+        return basicColors.green;
     } else if (coverage > 90) {
-        return colors.yellowgreen;
+        return basicColors.yellowgreen;
     } else if (coverage > 85) {
-        return colors.yellow;
+        return basicColors.yellow;
     } else if (coverage > 75) {
-        return colors.orange;
+        return basicColors.orange;
     } else {
-        return colors.red;
+        return basicColors.red;
     }
 }
 
-export async function createBadge(label: string, coverage: number): Promise<string> {
+export function createBadge(label: string, coverage: number): string {
     const color = getColor(coverage);
-    return badge(label, `${coverage}%`, color);
+    return basic(label, `${coverage}%`, color);
 }
