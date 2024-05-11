@@ -198,7 +198,7 @@ rules:
   jest/no-export: error
   jest/no-focused-tests: error
   jest/no-identical-title: error
-  jest/no-if: warn
+  jest/no-conditional-in-test: warn
   jest/no-jasmine-globals: error
   jest/no-mocks-import: error
   jest/no-standalone-expect:
