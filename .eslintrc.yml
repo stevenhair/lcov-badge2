@@ -191,6 +191,7 @@ rules:
         - assert*
   jest/no-alias-methods: error
   jest/no-commented-out-tests: warn
+  jest/no-conditional-in-test: warn
   jest/no-deprecated-functions: warn
   jest/no-disabled-tests: warn
   #  https://github.com/jest-community/eslint-plugin-jest/issues/642
@@ -198,7 +199,6 @@ rules:
   jest/no-export: error
   jest/no-focused-tests: error
   jest/no-identical-title: error
-  jest/no-conditional-in-test: warn
   jest/no-jasmine-globals: error
   jest/no-mocks-import: error
   jest/no-standalone-expect:
