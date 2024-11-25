@@ -28,6 +28,6 @@ jobs:
       - name: Codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        uses: codecov/codecov-action@v4.6.0
+        uses: codecov/codecov-action@v5.0.7
         with:
           directory: ./coverage
