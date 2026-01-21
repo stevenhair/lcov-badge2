@@ -2,7 +2,7 @@ import { fixupPluginRules } from '@eslint/compat';
 import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
-import stylistic from '@stylistic/eslint-plugin-ts'
+import stylistic from '@stylistic/eslint-plugin'
 import _import from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import unicorn from 'eslint-plugin-unicorn';
