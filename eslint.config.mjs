@@ -1,23 +1,11 @@
-import { fixupPluginRules } from '@eslint/compat';
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import stylistic from '@stylistic/eslint-plugin'
-import _import from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import tseslint from 'typescript-eslint';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all,
-});
 
 export default [
     js.configs.recommended,
@@ -25,7 +13,7 @@ export default [
     {
         plugins: {
             '@stylistic': stylistic,
-            import: fixupPluginRules(_import),
+            import: importPlugin,
             jest,
             unicorn,
         },
