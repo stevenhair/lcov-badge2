@@ -38,7 +38,7 @@
     "parse-lcov": "^1.0.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.21.0",
+    "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.7.0",
     "@types/jest": "^30.0.0",
     "@types/minimist": "^1.2.2",
