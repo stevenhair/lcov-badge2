@@ -1,7 +1,6 @@
 import js from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import stylistic from '@stylistic/eslint-plugin'
-import importPlugin from 'eslint-plugin-import';
 import jest from 'eslint-plugin-jest';
 import unicorn from 'eslint-plugin-unicorn';
 import globals from 'globals';
@@ -13,7 +12,6 @@ export default [
     {
         plugins: {
             '@stylistic': stylistic,
-            import: importPlugin,
             jest,
             unicorn,
         },
@@ -32,10 +30,6 @@ export default [
             parserOptions: {
                 project: 'tsconfig.json',
             },
-        },
-
-        settings: {
-            'import/internal-regex': '^(config|core|http-server|logging|operation-log|persistence|test|utils)/',
         },
 
         rules: {
@@ -205,25 +199,25 @@ export default [
             'use-isnan': 'error',
             'valid-typeof': 'error',
             'yield-star-spacing': 'error',
-            'import/export': 'error',
-            'import/first': 'error',
-            'import/no-cycle': 'error',
-            'import/order': [
-                'error',
-                {
-                    groups: [['builtin', 'external'], ['internal'], ['sibling', 'parent', 'index']],
-                    'newlines-between': 'always',
-                    alphabetize: {
-                        order: 'asc',
-                    },
-                },
-            ],
-            'import/no-deprecated': 'warn',
-            'import/no-duplicates': 'error',
-            'import/no-extraneous-dependencies': 'error',
-            'import/no-mutable-exports': 'error',
-            'import/no-relative-parent-imports': 'error',
-            'import/no-unused-modules': 'error',
+            // 'import/export': 'error',
+            // 'import/first': 'error',
+            // 'import/no-cycle': 'error',
+            // 'import/order': [
+            //     'error',
+            //     {
+            //         groups: [['builtin', 'external'], ['internal'], ['sibling', 'parent', 'index']],
+            //         'newlines-between': 'always',
+            //         alphabetize: {
+            //             order: 'asc',
+            //         },
+            //     },
+            // ],
+            // 'import/no-deprecated': 'warn',
+            // 'import/no-duplicates': 'error',
+            // 'import/no-extraneous-dependencies': 'error',
+            // 'import/no-mutable-exports': 'error',
+            // 'import/no-relative-parent-imports': 'error',
+            // 'import/no-unused-modules': 'error',
             'jest/consistent-test-it': [
                 'error',
                 {

@@ -11,6 +11,7 @@ export async function generateBadge(filename: string, label = 'coverage'): Promi
 }
 
 if (require.main === module) {
+    throw new Error('asdf');
     const args = processArguments();
     generateBadge(args.input, args.label)
         .then(async (badge) => fs.writeFile(args.output, badge))
