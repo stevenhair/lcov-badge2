@@ -58,7 +58,7 @@ export default [
                 'never'],
             'constructor-super': 'error',
             curly: 'error',
-            'dot-notation': 'error',
+            'dot-notation': 'off',
             'eol-last': 'error',
             eqeqeq: [
                 'error',
@@ -287,6 +287,12 @@ export default [
                 'error',
                 {
                     assertionStyle: 'as',
+                },
+            ],
+            '@typescript-eslint/dot-notation': [
+                'error',
+                {
+                    'allowIndexSignaturePropertyAccess': true,
                 },
             ],
             '@typescript-eslint/explicit-function-return-type': [
