@@ -17,7 +17,7 @@ function exitWithError(message: string): never {
 }
 
 function printHelp(): never {
-    const message = `Usage: ${basename(process.argv[1])} [-h] [-o OUTPUT] [-l LABEL] input
+    const message = `Usage: ${basename(process.argv[1] as string)} [-h] [-o OUTPUT] [-l LABEL] input
 
 Positional Arguments:
   input                 Path to LCOV file to parse
@@ -66,15 +66,15 @@ export function processArguments(): Arguments {
 
     const args = minimist(process.argv.slice(2), options);
 
-    if (args.help) {
+    if (args['help']) {
         printHelp();
     }
 
     validateArguments(args);
 
     return {
-        input: args._[0],
-        label: args.label,
-        output: args.output,
+        input: args._[0] as string,
+        label: args['label'],
+        output: args['output'],
     };
 }

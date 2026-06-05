@@ -1,24 +1,18 @@
 {
+  "extends": [
+    "@tsconfig/node18",
+    "@tsconfig/strictest"
+  ],
   "compilerOptions": {
-    "module": "commonjs",
-    "declaration": true,
+    "module": "nodenext",
     "removeComments": true,
-    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "target": "ES5",
-    "lib": [
-      "es2020"
-    ],
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
+    "rootDir": "./src",
     "resolveJsonModule": true,
-    "strict": true,
-    "typeRoots": [
-      "node_modules/@types",
-      "types"
-    ]
+    "declaration": true,
+    "types": ["node", "jest"]
   },
   "include": [
     "src/**/*.ts"
