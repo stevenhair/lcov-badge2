@@ -1,7 +1,7 @@
-import { spawnSync, SpawnSyncReturns } from 'child_process';
-import fs from 'fs/promises';
-import os from 'os';
-import path from 'path';
+import { spawn } from 'node:child_process';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
 
 import { createBadge } from './badge';
 import { getCoverageLevel } from './coverage';
@@ -50,7 +50,7 @@ describe('Main', () => {
             end_of_record`;
         let inputFilePath: string;
         let filePath: string;
-        let result: SpawnSyncReturns<string | Buffer>;
+        let exitCode: number | null;
 
         beforeEach(async () => {
             const dir = os.tmpdir();
@@ -59,7 +59,17 @@ describe('Main', () => {
 
             await fs.writeFile(inputFilePath, report);
 
-            result = spawnSync('ts-node', [path.join(__dirname, 'main.ts'), '-o', filePath, inputFilePath]);
+            await new Promise<void>((resolve) => {
+                const tsx = spawn(
+                    './node_modules/.bin/tsx',
+                    [path.join(__dirname, 'main.ts'), '-o', filePath, inputFilePath],
+                );
+
+                tsx.on('close', (code) => {
+                    exitCode = code;
+                    resolve();
+                });
+            });
         });
 
         afterEach(async () => {
@@ -68,7 +78,7 @@ describe('Main', () => {
         });
 
         test('it exited successfully', () => {
-            expect(result.status).toBe(0);
+            expect(exitCode).toBe(0);
         });
 
         test('it writes the badge file', async () => {
